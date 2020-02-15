@@ -64,7 +64,7 @@ query($skip: Int!, $limit: Int!) {
         id
         frontmatter {
           title
-          date
+           date(formatString: "MMM Do, YYYY")
         }
         excerpt
       }
