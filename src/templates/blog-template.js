@@ -2,12 +2,11 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 
 import Layout from "../components/layout";
-import {string} from "prop-types";
 
 export default ({ data, pageContext }) => {
     const { currentPage, isFirstPage, isLastPage, totalPages } = pageContext
-    const nextPage = `/blog/${string(currentPage + 1)}`
-    const prevPage = currentPage - 1 === 1 ? '/blog' : `/blog/${string(currentPage - 1)}`
+    const nextPage = `/blog/${String(currentPage + 1)}`
+    const prevPage = currentPage - 1 === 1 ? '/blog' : `/blog/${String(currentPage - 1)}`
 
     return (
         <Layout>
