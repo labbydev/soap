@@ -1,11 +1,49 @@
 import React from "react";
-import { StaticQuery, graphql, Link } from "gatsby";
+import { graphql, Link } from "gatsby";
 
 import Layout from "../components/layout";
+import {string} from "prop-types";
 
-const getMarkdownPosts = graphql`
-{
-  allMarkdownRemark {
+export default ({ data, pageContext }) => {
+    const { currentPage, isFirstPage, isLastPage } = pageContext
+    const nextPage = `/blog/${String(currentPage + 1)}`
+    const prevPage = currentPage - 1 === 1 ? '/blog' : `/blog/${String(currentPage - 1)}`
+
+    return (
+        <Layout>
+            <div>
+                <h1 style={{ display: 'inline-block', borderBottom: '1px solid' }}>Soap Blog</h1>
+
+                <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
+                {data.allMarkdownRemark.edges.map(({ node }) => (
+                    <div key={node.id}>
+                        <h3><Link to={`/posts${node.fields.slug}`}>{node.frontmatter.title}</Link>
+                            <span style={{ color:'#bbb' }}>- {node.frontmatter.date}</span>
+                        </h3>
+                        <p>{node.excerpt}</p>
+                    </div>
+                ))}
+
+                {/*Pageination Links*/}
+                <div>
+                    {!isFirstPage && (
+                        <Link to={prevPage} rel="prev">Prev Page</Link>
+                    )}
+                    {!isLastPage && (
+                        <Link to={nextPage} rel="next">Next Page</Link>
+                    )}
+                </div>
+            </div>
+        </Layout>
+    )
+}
+
+export const query = graphql`
+query($skip: Int!, $limit: Int!) {
+  allMarkdownRemark(
+    skip: $skip
+    limit: $limit
+  ) {
     totalCount
     edges {
       node {
@@ -21,29 +59,4 @@ const getMarkdownPosts = graphql`
       }
     }
   }
-}
-`
-
-export default () => (
-    <Layout>
-        <div>
-            <h1 style={{ display: 'inline-block', borderBottom: '1px solid' }}>Soap Blog</h1>
-            <StaticQuery
-                query={getMarkdownPosts}
-                render={data => (
-                    <>
-                        <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
-                        {data.allMarkdownRemark.edges.map(({ node }) => (
-                            <div key={node.id}>
-                                <h3><Link to={`/posts${node.fields.slug}`}>{node.frontmatter.title}</Link>
-                                    <span style={{ color:'#bbb' }}>- {node.frontmatter.date}</span>
-                                </h3>
-                                <p>{node.excerpt}</p>
-                            </div>
-                        ))}
-                    </>
-                )}
-            />
-        </div>
-    </Layout>
-)
+}`
