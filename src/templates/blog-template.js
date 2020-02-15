@@ -5,9 +5,9 @@ import Layout from "../components/layout";
 import {string} from "prop-types";
 
 export default ({ data, pageContext }) => {
-    const { currentPage, isFirstPage, isLastPage } = pageContext
-    const nextPage = `/blog/${String(currentPage + 1)}`
-    const prevPage = currentPage - 1 === 1 ? '/blog' : `/blog/${String(currentPage - 1)}`
+    const { currentPage, isFirstPage, isLastPage, totalPages } = pageContext
+    const nextPage = `/blog/${string(currentPage + 1)}`
+    const prevPage = currentPage - 1 === 1 ? '/blog' : `/blog/${string(currentPage - 1)}`
 
     return (
         <Layout>
@@ -25,10 +25,21 @@ export default ({ data, pageContext }) => {
                 ))}
 
                 {/*Pageination Links*/}
-                <div>
+                <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-around',
+                    maxWidth: 300,
+                    margin: '0 auto',
+                }}>
                     {!isFirstPage && (
                         <Link to={prevPage} rel="prev">Prev Page</Link>
                     )}
+                    {Array.from({ length: totalPages }, (_, index) => (
+                        <Link key={index} to={`/blog${index === 0 ? "" : index + 1}`}>
+                            {index + 1}
+                        </Link>
+                    ))}
                     {!isLastPage && (
                         <Link to={nextPage} rel="next">Next Page</Link>
                     )}
