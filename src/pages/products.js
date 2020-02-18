@@ -4,6 +4,7 @@ import Img from "gatsby-image"
 import netlifyIndentity from "netlify-identity-widget"
 
 import Layout from "../components/layout"
+import Image from "../components/image"
 
 class Products extends React.Component {
   state = {
@@ -30,11 +31,11 @@ class Products extends React.Component {
 
   return (
     <Layout>
+      <h2>Products</h2>
       <div>
         {/*{ Products List}*/}
         { products.map(({ node: product }) => (
           <div key={ product.id }>
-            <h2>Products</h2>
             <Link
               to={`/products/${ product.slug }`}
               style={{ textDecoration: 'none', color: '#551a8b' }}>
@@ -44,10 +45,7 @@ class Products extends React.Component {
                 color: '#f60'
               }}>${ product.price }</span></h3>
             </Link>
-            <Img
-              style={{ maxWidth: 400 }}
-              fluid={ product.image.fluid }
-            />
+            { product.image ? <Img style={{ maxWidth: 300 }} fluid={ product.image.fluid }/> : <Image style={{ maxWidth: 400 }} /> }
           </div>
         )) }
       </div>
@@ -65,7 +63,7 @@ export const query = graphql`
           price
           private
           image {
-            fluid(maxWidth: 400) {
+            fluid(maxWidth: 300) {
             ...GatsbyContentfulFluid
             }
           }

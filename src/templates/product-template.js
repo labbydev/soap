@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image"
 
 import Layout from "../components/layout"
+import Image from "../components/image"
 
 const ProductTemplate = ({ data: { contentfulProduct }, location }) => (
   <Layout>
@@ -29,10 +30,11 @@ const ProductTemplate = ({ data: { contentfulProduct }, location }) => (
         data-item-name={ contentfulProduct.name }
         data-item-price={ contentfulProduct.price }
         data-item-id={ contentfulProduct.id }
-        data-item-image={ contentfulProduct.image.file.url }
+        data-item-image={ contentfulProduct.image ? contentfulProduct.image.file.url : '' }
         data-item-url={ location.pathname }
       >Add to cart</button>
-      <Img style={{ margin: '0 auto', maxWidth: 600 }} fluid={ contentfulProduct.image.fluid } />
+      <br/>
+      { contentfulProduct.image ? <Img style={{ margin: '0 auto', maxWidth: 600 }} fluid={ contentfulProduct.image.fluid } /> : <Image /> }
     </div>
   </Layout>
 )

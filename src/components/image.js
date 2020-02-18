@@ -16,18 +16,10 @@ import Img from "gatsby-image"
 const Image = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
+      placeholderImage: file(relativePath: { eq: "pup.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      
-      iconImage: file(relativePath: {eq: "gatsby-icon.png"}) {
-        childImageSharp {
-          fluid(maxWidth: 590) {
-            ...GatsbyImageSharpFluid
+          fixed(width: 300, height: 300) {
+            ...GatsbyImageSharpFixed
           }
         }
       }
@@ -36,8 +28,7 @@ const Image = () => {
 
   return (
       <>
-    <Img fluid={data.placeholderImage.childImageSharp.fluid} />
-    <Img fluid={data.iconImage.childImageSharp.fluid} />
+    <Img fixed={data.placeholderImage.childImageSharp.fixed} />
     </>
   )
 }
