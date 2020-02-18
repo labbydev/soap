@@ -22,6 +22,7 @@ const Header = ({ siteTitle }) => (
         <div style={{
             display: 'flex',
             alignItems: 'center',
+            justifyContent: 'space-between'
         }}>
             <img src={gatsbyIcon} alt="gatsby logo" style={{
                 border: '3px solid orange',
@@ -40,6 +41,12 @@ const Header = ({ siteTitle }) => (
                     {siteTitle}
                 </Link>
             </h1>
+          {/*{Shopping Cart Summary}*/}
+          <div style={{ color: 'white', cursor: 'pointer' }} className="snipcart-summary snipcart-checkout">
+            <div><strong>My Cart</strong></div>
+            <div><span style={{ fontWeight: 'bold' }} className="snipcart-total-items"></span>{" "}Items in cart</div>
+            <div>Total price{' '}<span style={{ fontWeight: 'bold' }} className="snipcart-total-price"></span></div>
+          </div>
         </div>
     </div>
   </header>
