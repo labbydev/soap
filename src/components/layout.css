@@ -620,3 +620,21 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+/* NavLink */
+.active {
+  color: orange;
+  text-decoration: none;
+}
+
+.active:hover,
+.active:focus,
+.navlink:hover,
+.navlink:focus {
+  text-decoration: underline;
+}
+
+.navlink {
+  color: white;
+  text-decoration: none;
+}
