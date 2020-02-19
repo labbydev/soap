@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    @apply transition;
+    @apply ease-in-out;
+    @apply duration-300;
+}
+
+html {
+    @apply font-body;
+    @apply bg-cream;
+}
+
+h1 {
+    @apply text-2xl;
+}
+h2 {
+    @apply text-xl;
+}
+h3 {
+    @apply text-lg;
+}
+
+a {
+    @apply text-slate;
+    @apply border-solid;
+    @apply border-b-2;
+}
+
+a:hover,
+a:focus {
+    @apply text-black;
+}

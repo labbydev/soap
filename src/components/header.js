@@ -3,13 +3,15 @@ import PropTypes from "prop-types"
 import React from "react"
 import netlifyIdentity from "netlify-identity-widget"
 
-import gatsbyIcon from '../images/gatsby-icon.png'
-
-const isActive = ({ isCurrent }) => {
-  return { className: isCurrent ? 'active' : 'navlink' }
-}
-
-const NavLink = props => <Link getProps={isActive} {...props} />
+const MenuItem = ({ url, children, classes }) => (
+  <Link
+    className={`text-l text-center uppercase font-bold flex-auto tracking-widest hover:text-yellow ${ classes }`}
+    to={ url }
+    activeClassName="text-yellow border-b-solid border-b-2"
+  >
+    { children }
+  </Link>
+)
 
 class Header extends React.Component {
   componentDidMount() {
@@ -20,46 +22,17 @@ class Header extends React.Component {
     const { siteTitle } = this.props
 
     return (
-      <header
-        style={{
-          background: `rebeccapurple`,
-          marginBottom: `1.45rem`,
-        }}
-      >
-        <div
-          style={{
-            margin: `0 auto`,
-            maxWidth: 960,
-            padding: `1.45rem 1.0875rem`,
-          }}
-        >
+      <header className="font-body bg-black p-4">
+        <div className="container mx-auto flex content-between items-center">
           {/*Title & Logo*/}
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between'
-          }}>
-            <img src={gatsbyIcon} alt="gatsby logo" style={{
-              border: '3px solid orange',
-              borderRadius: '50%',
-              margin: '0 5px',
-              width: '50px',
-            }} />
-            <h1 style={{ margin: 0 }}>
-              <NavLink to="/">
-                {siteTitle}
-              </NavLink>
-            </h1>
-            <NavLink to="/blog">Blog</NavLink>
-            <NavLink to="/products">Store</NavLink>
-            <div data-netlify-identity-menu />
-            {/*{Shopping Cart Summary}*/}
-            <div style={{ color: 'white', cursor: 'pointer' }} className="snipcart-summary snipcart-checkout">
-              <div><strong>My Cart</strong></div>
-              <div><span style={{ fontWeight: 'bold' }} className="snipcart-total-items"></span>{" "}Items in cart</div>
-              <div>Total price{' '}<span style={{ fontWeight: 'bold' }} className="snipcart-total-price"></span></div>
-            </div>
-          </div>
+          <Link to="/" className="font-display text-5xl text-slate flex-auto tracking-tightest leading-none border-none hover:text-yellow">{siteTitle}</Link>
+          <nav className="menu__main flex flex-auto content-between text-slate">
+            <MenuItem url="/blog">Blog</MenuItem>
+            <MenuItem url="/products/">Products</MenuItem>
+            <MenuItem classes="snipcart-summary snipcart-checkout">My Cart</MenuItem>
+          </nav>
+          {/*{ Netlify Log in Menu }*/}
+          <nav className="flex-auto self-end text-right border-none hover:text-yellow" data-netlify-identity-menu></nav>
         </div>
       </header>
     )}

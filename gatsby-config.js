@@ -6,8 +6,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = {
   siteMetadata: {
-    title: `Soap`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `Hodor's Odors`,
+    description: `A site about some soap and candles that Shane & Lauren have made.`,
     author: `@labbydev`,
     createdAt: 2020,
   },
@@ -48,7 +48,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/pup.jpg`, // This path is relative to the root of the site.
       },
     },
     {
@@ -63,6 +63,22 @@ module.exports = {
       options: {
         apiKey: process.env.SNIPCART_API_KEY,
         autopop: true
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-postcss',
+      options: {
+        postCssPlugins: [
+          require('tailwindcss')
+        ]
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-purgecss',
+      options: {
+        printRejected: false,
+        develop: false,
+        tailwind: true
       }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality

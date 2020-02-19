@@ -32,20 +32,17 @@ class Products extends React.Component {
   return (
     <Layout>
       <h2>Products</h2>
-      <div>
+      <div
+        className="grid grid-cols-4 gap-3"
+      >
         {/*{ Products List}*/}
         { products.map(({ node: product }) => (
-          <div key={ product.id }>
-            <Link
-              to={`/products/${ product.slug }`}
-              style={{ textDecoration: 'none', color: '#551a8b' }}>
-              <h3>{ product.name } ·{' '}<span style={{
-                fontSize: '1.2rem',
-                fontWeight: 300,
-                color: '#f60'
-              }}>${ product.price }</span></h3>
-            </Link>
-            { product.image ? <Img style={{ maxWidth: 300 }} fluid={ product.image.fluid }/> : <Image style={{ maxWidth: 400 }} /> }
+          <div
+            key={ product.id }
+            className="text-center grid"
+          >
+            { product.image ? <Img className="col-end-auto" style={{ maxWidth: 300 }} fluid={ product.image.fluid }/> : <Image className="col-end-auto" style={{ maxWidth: 400 }} /> }
+            <h3><Link className="pb-1 leading-relaxed" to={`/products/${ product.slug }`}>{ product.name }</Link></h3>
           </div>
         )) }
       </div>
