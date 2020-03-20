@@ -6,11 +6,12 @@ module.exports = {
     },
     extend: {
       colors: {
-        yellow: '#feecaa',
-        cream: '#fcead1',
-        gray: '#acb0b4',
-        slate: '#7c8892',
-        black: '#2f2b30'
+        camel: '#c8b08b',
+        blue: '#d4e3f0',
+        gray: '#9ea2ac',
+        slate: '#757c83',
+        black: '#2f2b30',
+        white: '#f9ffff'
       }
     },
     letterSpacing: {

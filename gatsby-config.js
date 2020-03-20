@@ -6,7 +6,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = {
   siteMetadata: {
-    title: `Hodor's Odors`,
+    title: `Whiff`,
     description: `A site about some soap and candles that Shane & Lauren have made.`,
     author: `@labbydev`,
     createdAt: 2020,
