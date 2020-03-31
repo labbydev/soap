@@ -25,7 +25,7 @@ class Header extends React.Component {
       <header className="font-body p-4">
         <div className="container mx-auto flex content-between items-center">
           {/*Title & Logo*/}
-          <Link to="/" className="font-display text-4xl flex-auto leading-none border-none uppercase">{siteTitle}</Link>
+          <Link to="/" className="font-serif text-3xl flex-auto leading-none border-none lowercase italic tracking-tight">{siteTitle}</Link>
           <nav className="menu__main flex flex-auto content-between">
             <MenuItem url="/blog">Blog</MenuItem>
             <MenuItem url="/products/">Products</MenuItem>

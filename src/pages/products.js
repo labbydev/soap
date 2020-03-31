@@ -18,7 +18,6 @@ class Products extends React.Component {
   }
 
   getProducts = user => {
-    console.log('Current User', user)
     const allProducts = this.props.data.allContentfulProduct.edges
     const products = netlifyIndentity.currentUser() !== null ?
       allProducts :

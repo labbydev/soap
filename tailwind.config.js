@@ -3,6 +3,7 @@ module.exports = {
     fontFamily: {
       display: ['Short Stack', 'cursive'],
       body: ['Open Sans', 'sans-serif'],
+      serif: ['Trirong', 'serif'],
     },
     extend: {
       colors: {
@@ -15,13 +16,7 @@ module.exports = {
       }
     },
     letterSpacing: {
-      tightest: '-.075em',
-      tighter: '-.05em',
-      tight: '-0.25em',
-      normal: '0',
-      wide: '.025em',
-      wider: '.05em',
-      widest: '.25em'
+      widest: '.5em'
     }
   },
   variants: {},

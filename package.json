@@ -27,7 +27,8 @@
     "react-helmet": "^5.2.1",
     "tailwindcss": "^1.2.0",
     "typeface-open-sans": "0.0.75",
-    "typeface-short-stack": "0.0.72"
+    "typeface-short-stack": "0.0.72",
+    "typeface-trirong": "0.0.72"
   },
   "devDependencies": {
     "prettier": "^1.19.1"
