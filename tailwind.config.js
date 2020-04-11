@@ -5,6 +5,9 @@ module.exports = {
       body: ['Open Sans', 'sans-serif'],
       serif: ['Trirong', 'serif'],
     },
+    letterSpacing: {
+      widest: '.5em'
+    },
     extend: {
       colors: {
         camel: '#c8b08b',
@@ -13,11 +16,11 @@ module.exports = {
         slate: '#757c83',
         black: '#2f2b30',
         white: '#f9ffff'
-      }
+      },
+      margin: {
+        '-50': '-50%'
+      },
     },
-    letterSpacing: {
-      widest: '.5em'
-    }
   },
   variants: {},
   plugins: [],

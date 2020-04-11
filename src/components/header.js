@@ -5,9 +5,9 @@ import netlifyIdentity from "netlify-identity-widget"
 
 const MenuItem = ({ url, children, classes }) => (
   <Link
-    className={`text-xs text-center uppercase font-bold flex-auto tracking-widest ${ classes }`}
+    className={`text-sm text-center uppercase flex-auto tracking-widest mx-2 block py-2 max-w-xs`}
     to={ url }
-    activeClassName="text-slate bg-blue"
+    activeClassName="text-slate border-blue border-b-2 border-solid"
   >
     { children }
   </Link>
@@ -22,18 +22,18 @@ class Header extends React.Component {
     const { siteTitle } = this.props
 
     return (
-      <header className="font-body p-4">
-        <div className="container mx-auto flex content-between items-center">
+      <header className="container mx-auto flex content-between items-center px-4 py-2">
           {/*Title & Logo*/}
-          <Link to="/" className="font-serif text-3xl flex-auto leading-none border-none lowercase italic tracking-tight">{siteTitle}</Link>
-          <nav className="menu__main flex flex-auto content-between">
+          <Link to="/" className="font-serif text-3xl flex-none lowercase italic">{siteTitle}</Link>
+          <nav className="menu__main flex flex-grow m-x4 h-full min-h-full justify-center">
             <MenuItem url="/blog">Blog</MenuItem>
             <MenuItem url="/products/">Products</MenuItem>
-            <MenuItem classes="snipcart-summary snipcart-checkout">My Cart</MenuItem>
           </nav>
           {/*{ Netlify Log in Menu }*/}
-          <nav className="flex-auto self-end text-right font-bold text-sm" data-netlify-identity-menu></nav>
-        </div>
+          <div className="utility-links flex-initial self-end text-right uppercase text-xs tracking-wide">
+            {/*<nav className="" data-netlify-identity-menu></nav>*/}
+            <Link className="snipcart-summary snipcart-checkout">My Cart</Link>
+          </div>
       </header>
     )}
 }

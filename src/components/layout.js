@@ -10,7 +10,6 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import "./layout.css"
 
 const getSiteMetada = graphql`
     query SiteTitleQuery {
@@ -30,7 +29,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div className="container mx-auto p-4">
+      <div className="container mx-auto px-4">
         <main>{children}</main>
         <footer>
           Built by

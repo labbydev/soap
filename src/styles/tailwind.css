@@ -10,10 +10,14 @@
 
 html {
     @apply font-body;
+    @apply font-light;
 }
 
 h1 {
     @apply text-2xl;
+    @apply font-serif;
+    @apply font-semibold;
+    @apply leading-tight;
 }
 h2 {
     @apply text-xl;
