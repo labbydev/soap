@@ -9,7 +9,7 @@ const IndexPage = ({ data: { file } }) => (
     <SEO title="Home"/>
     <Hero
       title="Something smells better than poop house."
-      // image={ file.childImageSharp.fluid}
+      image={ file.childImageSharp.fluid}
       description="Candles and soaps that spark joy."
       buttonText="Check out the products"
       textColor="light"

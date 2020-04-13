@@ -21,7 +21,12 @@ module.exports = {
         '-50': '-50%'
       },
     },
+    linearGradientColors: theme => theme('colors'),
+    radialGradientColors: theme => theme('colors'),
+    conicGradientColors: theme => theme('colors'),
   },
   variants: {},
-  plugins: [],
+  plugins: [
+    require('tailwindcss-gradients')
+  ],
 }

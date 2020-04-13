@@ -25,11 +25,11 @@ const Hero = ({ title, description, buttonText, image, textColor }) => {
     <section className="hero">
       <BackgroundImage
         fluid={image || defaultImage.file.childImageSharp.fluid}
-        className="p-20 bg-center bg-fixed bg-cover"
+        className="bg-center bg-fixed bg-cover"
       >
         <div className={`
           ${ textColors[textColor] || textColors.dark }
-          hero__content container mx-auto text-center max-w-md
+          hero__content container p-20 text-center bg-gradient-b-black
         `}>
           <h1
             className="text-4xl my-8"

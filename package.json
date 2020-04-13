@@ -27,6 +27,7 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "tailwindcss": "^1.2.0",
+    "tailwindcss-gradients": "^3.0.0",
     "typeface-open-sans": "0.0.75",
     "typeface-short-stack": "0.0.72",
     "typeface-trirong": "0.0.72"
